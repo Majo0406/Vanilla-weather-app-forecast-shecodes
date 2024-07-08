@@ -1,0 +1,66 @@
+body {
+  background: linear-gradient(
+    180.3deg,
+    rgb(221, 221, 221) 5.5%,
+    rgb(110, 136, 161) 90.2%
+  );
+  background-attachment: fixed;
+  color: rgb(0, 0, 0);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  position: absolute;
+  top: 10%;
+  font-size: 50px;
+  font-weight: bolder;
+}
+h4 {
+  position: absolute;
+  top: 22%;
+  font-weight: bold;
+}
+p.current-date {
+  display: block;
+  position: absolute;
+  top: 30%;
+  font-weight: 400;
+}
+
+.container-xl {
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/132/287/original/9681161_4205986.jpg?1720474566");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.7);
+  display: block;
+  margin: 0 auto;
+  margin-top: 80px;
+  opacity: 0.8;
+  position: relative;
+}
+#search-form {
+  position: absolute;
+  top: 5%;
+  left: 75%;
+}
+.search-input {
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  padding: 3px;
+}
+
+.search-button {
+  font-size: 15px;
+  background-color: #ababd3;
+  color: white;
+  border: solid 2px white;
+  border-radius: 5px;
+}
+#info {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+}
