@@ -13,7 +13,7 @@
     <title>Weather app forecast</title>
   </head>
   <body>
-    <div class="container-xl text-center">
+    <div class="container-lg text-center">
       <form id="search-form">
         <input
           type="search"
@@ -21,123 +21,138 @@
           required
           class="search-input"
         />
-        <input type="submit" value="search" class="search-button" />
+        <input type="submit" value="Search" class="search-button" />
       </form>
       <div class="row">
-        <div class="col-3">
-          <div class="row">
-            <div class="col-4">
-              <div>July 08</div>
-              <p>Monday</p>
-            </div>
-            <div class="col-4">
-              <p>22º</p>
-              <p>16º</p>
-            </div>
-            <div class="col-4">☀️</div>
+        <div class="col-4">
+          <div class="row" id="empty">
+            <i class="fa-solid fa-sort-up" id="toparrow"></i>
           </div>
-          <div class="row">
+          <div class="row" id="today">
             <div class="col-4">
-              <div>July 08</div>
-              <p>Monday</p>
+              <div id="current-date2">July 08</div>
+              <p class="current-day">Monday</p>
             </div>
-            <div class="col-4">
-              <p>22º</p>
-              <p>16º</p>
+            <div class="col-4" id="temp-int">
+              <p class="tmax">22º</p>
+              <p class="tmin">16º</p>
             </div>
-            <div class="col-4">☀️</div>
+            <div class="col-4" id="temp-int-icon">
+              <div id="current-icon2">☀️</div>
+            </div>
           </div>
-          <div class="row">
-            <div class="col-4">
-              <div>July 08</div>
-              <p>Monday</p>
+          <div id="forecast-container">
+            <div class="forecast-day-container">
+              <div class="forecast-day">
+                <div class="forecast-day-date">July 08</div>
+                <p class="forecast-week-day">Monday</p>
+              </div>
+              <div class="forecast-interval">
+                <p class="forecast-maxt">22º</p>
+                <p class="forecast-mint">16º</p>
+              </div>
+              <div class="forecast-day-icon">
+                <div class="day-icon">☀️</div>
+              </div>
             </div>
-            <div class="col-4">
-              <p>22º</p>
-              <p>16º</p>
+            <div class="forecast-day-container">
+              <div class="forecast-day">
+                <div class="forecast-day-date">July 08</div>
+                <p class="forecast-week-day">Monday</p>
+              </div>
+              <div class="forecast-interval">
+                <p class="forecast-maxt">22º</p>
+                <p class="forecast-mint">16º</p>
+              </div>
+              <div class="forecast-day-icon">
+                <div class="day-icon">☀️</div>
+              </div>
             </div>
-            <div class="col-4">☀️</div>
+            <div class="forecast-day-container">
+              <div class="forecast-day">
+                <div class="forecast-day-date">July 08</div>
+                <p class="forecast-week-day">Monday</p>
+              </div>
+              <div class="forecast-interval">
+                <p class="forecast-maxt">22º</p>
+                <p class="forecast-mint">16º</p>
+              </div>
+              <div class="forecast-day-icon">
+                <div class="day-icon">☀️</div>
+              </div>
+            </div>
+            <div class="forecast-day-container">
+              <div class="forecast-day">
+                <div class="forecast-day-date">July 08</div>
+                <p class="forecast-week-day">Monday</p>
+              </div>
+              <div class="forecast-interval">
+                <p class="forecast-maxt">22º</p>
+                <p class="forecast-mint">16º</p>
+              </div>
+              <div class="forecast-day-icon">
+                <div class="day-icon">☀️</div>
+              </div>
+            </div>
+            <div class="forecast-day-container">
+              <div class="forecast-day">
+                <div class="forecast-day-date">July 08</div>
+                <p class="forecast-week-day">Monday</p>
+              </div>
+              <div class="forecast-interval">
+                <p class="forecast-maxt">22º</p>
+                <p class="forecast-mint">16º</p>
+              </div>
+              <div class="forecast-day-icon">
+                <div class="day-icon">☀️</div>
+              </div>
+            </div>
           </div>
-          <div class="row">
-            <div class="col-4">
-              <div>July 08</div>
-              <p>Monday</p>
-            </div>
-            <div class="col-4">
-              <p>22º</p>
-              <p>16º</p>
-            </div>
-            <div class="col-4">☀️</div>
-          </div>
-          <div class="row">
-            <div class="col-4">
-              <div>July 08</div>
-              <p>Monday</p>
-            </div>
-            <div class="col-4">
-              <p>22º</p>
-              <p>16º</p>
-            </div>
-            <div class="col-4">☀️</div>
-          </div>
-          <div class="row">
-            <div class="col-4">
-              <div>July 08</div>
-              <p>Monday</p>
-            </div>
-            <div class="col-4">
-              <p>22º</p>
-              <p>16º</p>
-            </div>
-            <div class="col-4">☀️</div>
-          </div>
-          <div class="row">
-            <div class="col-4">
-              <div>July 08</div>
-              <p>Monday</p>
-            </div>
-            <div class="col-4">
-              <p>22º</p>
-              <p>16º</p>
-            </div>
-            <div class="col-4">☀️</div>
+          <div class="row" id="empty2">
+            <i class="fa-solid fa-sort-down" id="bottomarrow"></i>
           </div>
         </div>
-        <div class="col-9">
+        <div class="col-8">
           <h1 class="current-city">Oporto</h1>
           <h4 class="country">Portugal</h4>
           <p class="current-date">July 08, Monday</p>
           <div class="row" id="info">
             <div class="col-4">
-              <div class="current_tempeture">20º</div>
-              <p>Feels like <span> 24º</span></p>
+              <div id="current_tempeture">
+                20 <span class="grades">ºC</span>
+              </div>
+              <p class="sensation">
+                Feels like <span id="sensation-temp"> 24 ºC</span>
+              </p>
             </div>
-            <div class="col-4">☀️</div>
-            <div class="col-4">
-              Clear Sky
-              <p>20:47</p>
+            <div class="col-4" id="current-icon">☀️</div>
+            <div class="col-4" id="current-description-container">
+              <div id="current-description">
+                Clear Sky
+                <p class="time">20:47h</p>
+              </div>
             </div>
             <div class="col">
               <div class="row">
-                <div class="col-4">
+                <div class="col-4" id="wind">
                   <i class="fa-solid fa-wind"></i>
                   <p>Wind</p>
-                  <p>4km/h</p>
+                  <p class="wind-speed">4km/h</p>
                 </div>
-                <div class="col-4">
+                <div class="col-4" id="humidity">
                   <i class="fa-solid fa-droplet"></i>
                   <p>Humidity</p>
-                  <p>87%</p>
+                  <p class="humidity-data">87%</p>
                 </div>
-                <div class="col-4">
+                <div class="col-4" id="pressure">
                   <i class="fa-solid fa-stopwatch"></i>
                   <p>Pressure</p>
-                  <p>1009 mb</p>
+                  <p class="pressure-data">1009 mb</p>
                 </div>
               </div>
             </div>
           </div>
-          <p>Low chance of precipitation</p>
+          <p class="rain">Low chance of precipitation</p>
         </div>
       </div>
     </div>
