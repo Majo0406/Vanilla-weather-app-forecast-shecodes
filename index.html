@@ -10,6 +10,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     <title>Weather app forecast</title>
   </head>
   <body>
@@ -20,6 +21,7 @@
           placeholder="Enter city..."
           required
           class="search-input"
+          id="search-input"
         />
         <input type="submit" value="Search" class="search-button" />
       </form>
@@ -30,8 +32,8 @@
           </div>
           <div class="row" id="today">
             <div class="col-4">
-              <div id="current-date2">July 08</div>
-              <p class="current-day">Monday</p>
+              <div id="current-date2">Today</div>
+              <p class="current-day"></p>
             </div>
             <div class="col-4" id="temp-int">
               <p class="tmax">22º</p>
@@ -115,39 +117,36 @@
         <div class="col-8">
           <h1 class="current-city">Oporto</h1>
           <h4 class="country">Portugal</h4>
-          <p class="current-date">July 08, Monday</p>
+          <p class="current-date">Today</p>
+          <span id="current-day"> </span>
           <div class="row" id="info">
             <div class="col-4">
-              <div id="current_tempeture">
-                20 <span class="grades">ºC</span>
-              </div>
+              <div id="current_tempeture">- <span class="grades">ºC</span></div>
               <p class="sensation">
-                Feels like <span id="sensation-temp"> 24 ºC</span>
+                Feels like <span id="sensation-temp"> -</span> ºC
               </p>
             </div>
             <div class="col-4" id="current-icon">☀️</div>
             <div class="col-4" id="current-description-container">
-              <div id="current-description">
-                Clear Sky
-                <p class="time">20:47h</p>
-              </div>
+              <div id="current-description">-</div>
+              <p class="time">--:--h</p>
             </div>
             <div class="col">
               <div class="row">
                 <div class="col-4" id="wind">
                   <i class="fa-solid fa-wind"></i>
                   <p>Wind</p>
-                  <p class="wind-speed">4km/h</p>
+                  <p class="wind-speed">-km/h</p>
                 </div>
                 <div class="col-4" id="humidity">
                   <i class="fa-solid fa-droplet"></i>
                   <p>Humidity</p>
-                  <p class="humidity-data">87%</p>
+                  <p class="humidity-data">-%</p>
                 </div>
                 <div class="col-4" id="pressure">
                   <i class="fa-solid fa-stopwatch"></i>
                   <p>Pressure</p>
-                  <p class="pressure-data">1009 mb</p>
+                  <p class="pressure-data">- mb</p>
                 </div>
               </div>
             </div>

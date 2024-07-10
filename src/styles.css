@@ -26,9 +26,10 @@ p.rain {
 h1,
 h4,
 p.current-date,
+#current-day,
 #search-form,
 #info,
-#current_tempeture .grades,
+.grades,
 p.rain {
   position: absolute;
 }
@@ -48,6 +49,11 @@ p.current-date {
   top: 28%;
   font-weight: 550;
   left: 38%;
+}
+#current-day {
+  top: 28%;
+  font-weight: 550;
+  left: 45%;
 }
 
 .container-lg {
@@ -114,11 +120,11 @@ a {
   height: 130px;
 }
 
-#current_tempeture .grades {
+.grades {
   font-size: 30px;
   font-weight: bold;
   top: 30px;
-  margin-left: 10px;
+  margin-left: -10px;
 }
 p.sensation {
   margin-top: -20px;
@@ -137,6 +143,18 @@ p.sensation {
   width: 23%;
   height: 10%;
 }
+
+#icon-url {
+  text-align: center;
+  font-size: 85px;
+  margin-top: -10px;
+  margin-left: 3px;
+  margin-right: 18px;
+  border-radius: 20px;
+  width: 100%;
+  height: 85%;
+}
+
 #current-description-container {
   border-left: solid 1px #3a3950;
   height: 130px;
@@ -146,12 +164,15 @@ p.sensation {
 #current-description {
   text-align: left;
   position: relative;
-  top: 30%;
+  top: 10%;
   left: 10%;
-  font-size: 25px;
+  font-size: 23px;
 }
 
-#current-description .time {
+p.time {
+  position: absolute;
+  top: 30%;
+  right: 26%;
   font-size: 20px;
 }
 #wind,
@@ -277,6 +298,13 @@ p.tmin,
   height: 60px;
   border-radius: 20px;
 }
+
+#current-icon2f {
+  background: none;
+  height: 60px;
+  border-radius: 20px;
+}
+
 #forecast-container {
   background-color: white;
   border-top-right-radius: 20px;
