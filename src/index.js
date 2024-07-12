@@ -200,11 +200,23 @@ function rainMessage(probability) {
     let searchInput = document.querySelector("#search-input");
     searchCity (searchInput.value);
  }
+
+ function first (){
+    alert ("You have reached the first day of the week's forecast.🌞"); 
+ }
+ function last (){
+    alert ("You have reached the last day of the week's forecast.🌬️"); 
+ }
  
  
  let formInput = document.querySelector ("#search-form");
  formInput.addEventListener ("submit", searchForm);
 
+ let toparrow = document.querySelector ("#toparrow");
+ toparrow.addEventListener ("click", first);
+
+ let bottomarrow = document.querySelector ("#bottomarrow");
+ bottomarrow.addEventListener ("click", last);
  
  
 searchCity("Porto");
