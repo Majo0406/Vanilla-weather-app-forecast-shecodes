@@ -70,7 +70,10 @@
   currentDayEF.innerHTML = todayDay (date);
   timeE.innerHTML = time(date);
   apiForecast(city);
-  rainproba(pressure, humidity);
+  probability = rainproba(pressure, humidity);
+  let message = rainMessage(probability);
+  let rainE = document.querySelector("p.rain");
+  rainE.textContent = message;
  }
 
  function displayForecast (response){
@@ -103,63 +106,58 @@
 
 function rainproba(pressure, humidity) {
 
-   if (pressure > 1020) {
-      if (humidity < 50) {
-          probability = 10;
-      } else if (humidity > 80) {
-          probability = 20;
-      } else {
-          probability = 15;
-      }
-  } else if (pressure > 1010) {
-      if (humidity < 50) {
-          probability = 20;
-      } else if (humidity > 80) {
-          probability = 50;
-      } else {
-          probability = 35;
-      }
-  } else if (pressure > 1000) {
-      if (humidity < 50) {
-          probability = 50;
-      } else if (humidity > 80) {
-          probability = 80;
-      } else {
-          probability = 65;
-      }
-  } else {
-      if (humidity < 50) {
-          probability = 70;
-      } else if (humidity > 80) {
-          probability = 100;
-      } else {
-          probability = 85;
-      }
-  }
+    if (pressure > 1020) {
+        if (humidity < 50) {
+            probability = 10;
+        } else if (humidity > 80) {
+            probability = 20;
+        } else {
+            probability = 15;
+        }
+    } else if (pressure > 1010) {
+        if (humidity < 50) {
+            probability = 20;
+        } else if (humidity > 80) {
+            probability = 50;
+        } else {
+            probability = 35;
+        }
+    } else if (pressure > 1000) {
+        if (humidity < 50) {
+            probability = 50;
+        } else if (humidity > 80) {
+            probability = 80;
+        } else {
+            probability = 65;
+        }
+    } else {
+        if (humidity < 50) {
+            probability = 70;
+        } else if (humidity > 80) {
+            probability = 100;
+        } else {
+            probability = 85;
+        }
+    }
 
-  return probability;
+    return probability;
 }
 
- probability = rainproba(pressure, humidity);
 
 function rainMessage(probability) {
-   if (probability <= 10) {
-      return "Very low chance of precipitation";
-  } else if (probability <= 30) {
-      return "Low chance of precipitation";
-  } else if (probability <= 50) {
-      return "Moderate chance of precipitation";
-  } else if (probability <= 70) {
-      return "High chance of precipitation";
-  } else {
-      return "Very high chance of precipitation";
-  }
+      
+    if (probability <= 10) {
+        return "Very low chance of precipitation";
+    } else if (probability <= 30) {
+        return "Low chance of precipitation";
+    } else if (probability <= 50) {
+        return "Moderate chance of precipitation";
+    } else if (probability <= 70) {
+        return "High chance of precipitation";
+    } else {
+        return "Very high chance of precipitation";
+    }
 }
-
-let message = rainMessage(probability);   
-let rainE = document.querySelector("p.rain");
-rainE.textContent = message;
-
 
  function capital (description){
     return description.charAt(0).toUpperCase() + description.slice(1);
@@ -209,6 +207,6 @@ rainE.textContent = message;
 
  
  
-searchCity("Oporto");
+searchCity("Porto");
 
  
