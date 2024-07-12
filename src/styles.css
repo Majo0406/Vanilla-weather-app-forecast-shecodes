@@ -100,14 +100,15 @@ p.current-date {
   margin-top: 20px;
 }
 footer {
+  color: white;
   text-align: center;
-  text-shadow: 5px 5px 10px rgba(80, 79, 94, 0.4);
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
   padding-bottom: 25px;
   margin-top: 80px;
   font-size: 18px;
 }
 a {
-  color: #f0d25b;
+  color: #f1ba1b;
   text-shadow: 5px 10px 10px rgba(240, 210, 91, 0.4);
 }
 
