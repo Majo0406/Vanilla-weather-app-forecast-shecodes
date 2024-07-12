@@ -1,7 +1,8 @@
  // 1. Varible declaration
- let days = ["Sunday"," Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+ let days = ["Sunday"," Monday","Tuesday","Wednes","Thursday","Friday","Saturday"];
  let months = ["Jan","Feb","March","April","May","June","July","Aug","Sep","Oct","Nov","Dec"];
  let apiKey = "638dfae104o02t4843b3b3d0b32d7760";
+ let probability;
  // 2. Functions declaration
  function searchCity (city){
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`
@@ -10,15 +11,17 @@
 
  function apiForecast (city){
     let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`
-    axios.get (apiUrl).then (tempInter);
-    
+    axios.get (apiUrl).then (tempInter);      
  }
 
  function tempInter (response){
+    displayForecast(response.data);
+    let day = new Date();
+    let today = day.getDay();
     let mintE = document.querySelector("p.tmin");
     let maxtE = document.querySelector("p.tmax");
-    let mint = Math.round(response.data.daily[0].temperature.minimum);
-    let maxt = Math.round(response.data.daily[0].temperature.maximum);
+    let mint = Math.round(response.data.daily[today].temperature.minimum);
+    let maxt = Math.round(response.data.daily[today].temperature.maximum);
     mintE.innerHTML = `${mint}º`;
     maxtE.innerHTML = `${maxt}º`;
 
@@ -67,8 +70,95 @@
   currentDayEF.innerHTML = todayDay (date);
   timeE.innerHTML = time(date);
   apiForecast(city);
+  rainproba(pressure, humidity);
  }
 
+ function displayForecast (response){
+   
+   let forecast = document.querySelector ("#forecast-container");
+   let forecastHTML = "";
+
+   response.daily.forEach(function (day, index)  {
+  
+      if(index>0 && index<6)
+     {forecastHTML = forecastHTML + `<div class="forecast-day-container">
+                <div class="forecast-day">
+                  <div class="forecast-day-date">${fcDate(day.time)}</div>
+                  <p class="forecast-week-day">${fcDay(day.time)}</p>
+                </div>
+                <div class="forecast-interval">
+                  <p class="forecast-maxt">${Math.round(day.temperature.maximum)}º</p>
+                  <p class="forecast-mint">${Math.round(day.temperature.minimum)}º</p>
+                </div>
+                <div class="forecast-day-icon">
+                  <div class="day-icon"><img id="fday-icon" src="${day.condition.icon_url}" /></div>
+                </div>
+              </div>`}
+     
+   });
+
+   forecast.innerHTML = forecastHTML;
+
+}
+
+function rainproba(pressure, humidity) {
+
+   if (pressure > 1020) {
+      if (humidity < 50) {
+          probability = 10;
+      } else if (humidity > 80) {
+          probability = 20;
+      } else {
+          probability = 15;
+      }
+  } else if (pressure > 1010) {
+      if (humidity < 50) {
+          probability = 20;
+      } else if (humidity > 80) {
+          probability = 50;
+      } else {
+          probability = 35;
+      }
+  } else if (pressure > 1000) {
+      if (humidity < 50) {
+          probability = 50;
+      } else if (humidity > 80) {
+          probability = 80;
+      } else {
+          probability = 65;
+      }
+  } else {
+      if (humidity < 50) {
+          probability = 70;
+      } else if (humidity > 80) {
+          probability = 100;
+      } else {
+          probability = 85;
+      }
+  }
+
+  return probability;
+}
+
+ probability = rainproba(pressure, humidity);
+
+function rainMessage(probability) {
+   if (probability <= 10) {
+      return "Very low chance of precipitation";
+  } else if (probability <= 30) {
+      return "Low chance of precipitation";
+  } else if (probability <= 50) {
+      return "Moderate chance of precipitation";
+  } else if (probability <= 70) {
+      return "High chance of precipitation";
+  } else {
+      return "Very high chance of precipitation";
+  }
+}
+
+let message = rainMessage(probability);   
+let rainE = document.querySelector("p.rain");
+rainE.textContent = message;
 
 
  function capital (description){
@@ -83,6 +173,15 @@
  function todayDay (date){
     let day = days[date.getDay()];
     return day;
+ }
+ function fcDay (timef){
+   let date = new Date(timef*1000);
+   return days [date.getDay()];
+ }
+ function fcDate (timef) {
+   let date = new Date(timef*1000);
+   return `${months[date.getMonth()]} ${date.getDate()}`;
+
  }
  function time (date){
     let minutes = date.getMinutes();
@@ -107,5 +206,9 @@
  
  let formInput = document.querySelector ("#search-form");
  formInput.addEventListener ("submit", searchForm);
+
+ 
+ 
+searchCity("Oporto");
 
  

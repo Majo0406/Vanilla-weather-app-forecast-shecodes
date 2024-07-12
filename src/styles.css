@@ -13,7 +13,7 @@ body {
 #pressure,
 #current-icon2,
 .day-icon {
-  background-color: rgba(58, 57, 80, 0.3);
+  background-color: rgba(58, 57, 80, 0.5);
 }
 #wind,
 #humidity,
@@ -291,6 +291,12 @@ p.tmin,
   text-align: center;
   margin-top: -2px;
   margin-left: 5px;
+  width: 30%;
+}
+#fday-icon {
+  position: absolute;
+  margin-left: -40px;
+  margin-top: -10px;
   width: 25%;
 }
 #current-icon2,
@@ -301,8 +307,10 @@ p.tmin,
 
 #current-icon2f {
   background: none;
-  height: 60px;
   border-radius: 20px;
+  width: 115%;
+  margin-top: -13px;
+  margin-left: -5px;
 }
 
 #forecast-container {
